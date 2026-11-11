@@ -1,0 +1,9 @@
+# STM32CubeIDE personal settings and logs
+hardware/.metadata/
+
+# Build output
+hardware/Project/Debug/
+hardware/Project/Release/
+
+# Secret keys (copy web/.env.example to web/.env)
+web/.env
