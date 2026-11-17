@@ -30,7 +30,18 @@ The board sends the readings to our website. The website runs an LLM (large lang
 
 ## Wiring
 
-Not decided yet. See [docs/wire.md](docs/wire.md) for the wiring plan.
+Power all modules from 3.3V, not 5V. The STM32 analog pins can be damaged by 5V.
+
+| Module | Module pin | Board pin (header label) |
+|--------|------------|--------------------------|
+| KY-039 | S          | PA0 (A0)                 |
+| KY-036 | AO         | PA1 (A1)                 |
+| KY-036 | DO         | PB5 (D4)                 |
+| KY-006 | S          | PB4 (D5)                 |
+| KY-016 | R / G / B  | PA8 (D7) / PB10 (D6) / PA6 (D12) |
+| All    | + / -      | 3.3V / GND               |
+
+The link to the website (NodeMCU ESP32-S3) is not decided yet. See [docs/wire.md](docs/wire.md) for the full wiring plan.
 
 ## Pipeline
 
@@ -57,13 +68,14 @@ How the board connects to the website is not decided yet. One option is a NodeMC
 ```
 embedded/
 ├── docs/
-│   ├── protocol.md     messages between the board and the website
-│   └── wire.md         wiring plan
-├── hardware/Project/   firmware (the code that runs on the board)
-│   ├── Core/           our code, starting from main.c
-│   ├── Drivers/        ST's library code for the chip (do not edit)
-│   └── Project.ioc     pin and peripheral settings
-└── web/                website: shows the score and runs the LLM
+│   ├── hardware_test.md  how to test each module
+│   ├── protocol.md       messages between the board and the website
+│   └── wire.md           wiring plan
+├── hardware/Project/     firmware (the code that runs on the board)
+│   ├── Core/             our code, starting from main.c
+│   ├── Drivers/          ST's library code for the chip (do not edit)
+│   └── Project.ioc       pin and peripheral settings
+└── web/                  website: shows the score and runs the LLM
 ```
 
 Edit `Project.ioc` with STM32CubeMX, the pin setup tool built into STM32CubeIDE. After saving, it regenerates part of the code in `Core/`.
@@ -78,6 +90,10 @@ You need STM32CubeIDE, ST's free tool to write and upload code to STM32 boards.
 2. Import the project: File > Import > Existing Projects into Workspace, then select `hardware/Project`.
 3. Connect the board with a USB cable.
 4. Click Run. This builds the code and flashes it (uploads it) to the board.
+
+### Hardware test
+
+Right now the firmware runs a hardware test. It checks that each module works and is wired correctly. See [docs/hardware_test.md](docs/hardware_test.md) for how to run it and what to check.
 
 ### Website
 
