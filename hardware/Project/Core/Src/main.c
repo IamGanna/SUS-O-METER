@@ -51,6 +51,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
+void hw_test_run(void);
 
 /* USER CODE END PFP */
 
@@ -90,6 +91,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  hw_test_run(); /* never returns; remove this line and hw_test.c after testing */
 
   /* USER CODE END 2 */
 
