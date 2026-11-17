@@ -1,6 +1,8 @@
 # Wiring Plan
 
-> **Not decided yet.** Board pins will be chosen later. Fill in the "Board pin" column after you set the pins in `Project.ioc`.
+> These pins are used by the hardware test (`Core/Src/hw_test.c`). They are not set in `Project.ioc` yet. When you set them there, use the same pins.
+>
+> Power the sensors from 3.3V, not 5V. The STM32 analog pins can be damaged by 5V.
 
 ## Module wiring
 
@@ -12,19 +14,21 @@
 
 | Module | Module pin       | Pin type needed | Board pin |
 |--------|------------------|-----------------|-----------|
-| KY-039 | S (signal)       | ADC             | TBD       |
+| KY-039 | S (signal)       | ADC             | PA0 (A0)  |
 | KY-039 | +                | Power           | 3.3V      |
 | KY-039 | -                | Ground          | GND       |
-| KY-036 | AO (analog out)  | ADC             | TBD       |
-| KY-036 | DO (digital out) | GPIO in         | TBD       |
+| KY-036 | AO (analog out)  | ADC             | PA1 (A1)  |
+| KY-036 | DO (digital out) | GPIO in         | PB5 (D4)  |
 | KY-036 | +                | Power           | 3.3V      |
 | KY-036 | G                | Ground          | GND       |
-| KY-006 | S (signal)       | PWM             | TBD       |
+| KY-006 | S (signal)       | PWM             | PB4 (D5), TIM3_CH1 |
 | KY-006 | -                | Ground          | GND       |
-| KY-016 | R                | GPIO out        | TBD       |
-| KY-016 | G                | GPIO out        | TBD       |
-| KY-016 | B                | GPIO out        | TBD       |
+| KY-016 | R                | GPIO out        | PA8 (D7)  |
+| KY-016 | G                | GPIO out        | PB10 (D6) |
+| KY-016 | B                | GPIO out        | PA6 (D12) |
 | KY-016 | -                | Ground          | GND       |
+
+The labels in brackets (A0, D4, ...) are printed next to the Arduino-style headers on the board.
 
 ## Board to website link
 

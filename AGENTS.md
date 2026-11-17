@@ -5,6 +5,7 @@ Rules for any AI agent working in this repository. Follow all of them.
 ## 1. Plan first, then code
 
 - Do not start coding right away. No "vibe coding".
+- Check the code first before doing anything.
 - Before you change any code, write a short plan:
   - What you will change.
   - Which files you will touch.

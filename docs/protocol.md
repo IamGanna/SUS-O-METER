@@ -5,7 +5,6 @@
 > - How the board connects to the website (for example, a NodeMCU ESP32-S3 over Wi-Fi). See [wire.md](wire.md).
 > - The message names and their format.
 >
-> Agree on it as a team before you start coding.
 
 This file lists the messages the board and the website send each other. Each message is one line of text that ends with a newline (`\n`). Plain text is easy to read in a serial monitor (a tool that shows the text a board sends), so it is easy to debug.
 
