@@ -12,23 +12,29 @@
 - GPIO in / out: reads or sets a simple on/off signal.
 - PWM: switches a pin on and off very fast. The buzzer needs this to make sound.
 
-| Module | Module pin       | Pin type needed | Board pin |
-|--------|------------------|-----------------|-----------|
-| KY-039 | S (signal)       | ADC             | PA0 (A0)  |
-| KY-039 | +                | Power           | 3.3V      |
-| KY-039 | -                | Ground          | GND       |
-| KY-036 | AO (analog out)  | ADC             | PA1 (A1)  |
-| KY-036 | DO (digital out) | GPIO in         | PB5 (D4)  |
-| KY-036 | +                | Power           | 3.3V      |
-| KY-036 | G                | Ground          | GND       |
-| KY-006 | S (signal)       | PWM             | PB4 (D5), TIM3_CH1 |
-| KY-006 | -                | Ground          | GND       |
-| KY-016 | R                | GPIO out        | PA8 (D7)  |
-| KY-016 | G                | GPIO out        | PB10 (D6) |
-| KY-016 | B                | GPIO out        | PA6 (D12) |
-| KY-016 | -                | Ground          | GND       |
+| Module | Module pin       | Pin type needed | Board pin | Header and pin number |
+|--------|------------------|-----------------|-----------|-----------------------|
+| KY-039 | S (signal)       | ADC             | PA0 (A0)  | CN8 pin 1             |
+| KY-039 | +                | Power           | 3.3V      | CN6 pin 4             |
+| KY-039 | -                | Ground          | GND       | CN6 pin 6 or 7        |
+| KY-036 | AO (analog out)  | ADC             | PA1 (A1)  | CN8 pin 2             |
+| KY-036 | DO (digital out) | GPIO in         | PB5 (D4)  | CN9 pin 5             |
+| KY-036 | +                | Power           | 3.3V      | CN6 pin 4             |
+| KY-036 | G                | Ground          | GND       | CN6 pin 6 or 7        |
+| KY-006 | S (signal)       | PWM             | PB4 (D5), TIM3_CH1 | CN9 pin 6    |
+| KY-006 | -                | Ground          | GND       | CN6 pin 6 or 7, or CN5 pin 7 |
+| KY-016 | R                | GPIO out        | PA8 (D7)  | CN9 pin 8             |
+| KY-016 | G                | GPIO out        | PB10 (D6) | CN9 pin 7             |
+| KY-016 | B                | GPIO out        | PA6 (D12) | CN5 pin 5             |
+| KY-016 | -                | Ground          | GND       | CN5 pin 7             |
 
 The labels in brackets (A0, D4, ...) are printed next to the Arduino-style headers on the board.
+
+Both sensors need 3.3V. Use CN6 pin 4 for one and CN7 pin 16 (also 3.3V) for the other, or share one pin with a breadboard.
+
+Pin numbers are from the Arduino-style headers (pink in the image below). For example, on CN9, pin 1 is D0 and pin 8 is D7.
+
+![NUCLEO-F411RE pinout](images-14532-17561896997043.png)
 
 ## Board to website link
 
